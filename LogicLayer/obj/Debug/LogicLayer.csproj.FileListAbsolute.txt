@@ -1,9 +1,0 @@
-c:\users\w530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\bin\Debug\LogicLayer.dll
-c:\users\w530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\bin\Debug\LogicLayer.pdb
-c:\users\w530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\obj\Debug\LogicLayer.csprojResolveAssemblyReference.cache
-c:\users\w530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\obj\Debug\LogicLayer.dll
-c:\users\w530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\obj\Debug\LogicLayer.pdb
-C:\Users\W530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\bin\Debug\EntityFramework.dll
-C:\Users\W530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\bin\Debug\EntityFramework.xml
-C:\Users\W530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\bin\Debug\es\EntityFramework.resources.dll
-C:\Users\W530\documents\visual studio 2012\Projects\PmWebSite\LogicLayer\bin\Debug\LogicLayer.dll.config
