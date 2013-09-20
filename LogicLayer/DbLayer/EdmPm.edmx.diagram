@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37d18572955b4401a662202e0c136288" Name="Diagrama1">
+        <EntityTypeShape EntityType="pmsiteModel.logEventos" Width="1.5" PointX="2.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.pm_events" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.pm_rsvp" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.pm_speaker" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.pm_speakers_event" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.pm_user" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.rolesUsuario" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmsiteModel.users" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="pmsiteModel.FK_pm_rsvp_pm_events" ManuallyRouted="false" />
+        <AssociationConnector Association="pmsiteModel.FK_pm_speakers_event_pm_events" ManuallyRouted="false" />
+        <AssociationConnector Association="pmsiteModel.FK_pm_rsvp_pm_user" ManuallyRouted="false" />
+        <AssociationConnector Association="pmsiteModel.FK_pm_speakers_event_pm_speaker" ManuallyRouted="false" />
+        <AssociationConnector Association="pmsiteModel.roles_usuarios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

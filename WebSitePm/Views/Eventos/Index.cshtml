@@ -1,0 +1,82 @@
+﻿@model IEnumerable<LogicLayer.DbLayer.pm_events>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using(Html.BeginForm())
+{
+    <div>
+        Nombre:
+        <input type="text" name="nombre" />  
+        Fecha Inicio:
+        <input type="text" name="fi" class="inputDate" />
+
+        Fecha Fin:
+        <input type="text" name="ff" class="inputDate" />
+
+        <input type="submit" value="Buscar"/>
+
+    </div>
+}
+
+
+
+<table>
+    <tr>
+        <th>
+            uid
+        </th>
+        <th>
+            name
+        </th>
+        <th>
+            eventDate
+        </th>
+        <th>
+            eventDescription
+        </th>
+        <th>
+            createdDate
+        </th>
+        <th>
+            updateDate
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.uid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.uid}) |
+            @Html.ActionLink("Details", "Details", new { id=item.uid}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uid })
+        </td>
+    </tr>
+}
+
+</table>

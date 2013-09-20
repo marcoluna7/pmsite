@@ -1,0 +1,48 @@
+﻿@using LogicLayer.DbLayer;
+@model LogicLayer.DbLayer.pm_events
+
+
+@{
+    Func<List<pm_speaker>> getExpo = delegate()
+    {
+        List<pm_speaker> lista = null;
+        using(AcessDb acceso = AcessDb.GetInstance())
+        {
+            lista = acceso.GetPmSpeakersByEvent(Model.uid);
+        }  
+        if(null == lista)
+        {
+            lista = new List<pm_speaker>();
+            
+        }      
+        return lista;
+    };
+}
+
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                Borrar
+            </td>
+            <td>
+                Id
+            </td>
+            <td>
+                Nombre
+            </td>
+        </tr>
+    </thead>
+    @foreach(var item in getExpo())
+    {
+        <tr>
+            <td><input type="button" class="delete" value="Borrar" data-id="@item.uid"  /></td>
+            <td>@item.uid</td>
+            <td>@item.firstName @item.lastName</td>
+        </tr>
+    }
+</table>
+
+
+

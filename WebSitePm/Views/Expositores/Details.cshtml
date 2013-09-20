@@ -1,0 +1,35 @@
+﻿@model LogicLayer.DbLayer.pm_speaker
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>pm_speaker</legend>
+
+    <div class="display-label">uid</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.uid)
+    </div>
+
+    <div class="display-label">firstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.firstName)
+    </div>
+
+    <div class="display-label">lastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lastName)
+    </div>
+
+    <div class="display-label">gender</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.gender)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

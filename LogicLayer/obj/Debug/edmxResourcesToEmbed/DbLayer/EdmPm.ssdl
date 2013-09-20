@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pmsiteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="pmsiteModelStoreContainer">
+    <EntitySet Name="logEventos" EntityType="pmsiteModel.Store.logEventos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pm_events" EntityType="pmsiteModel.Store.pm_events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pm_rsvp" EntityType="pmsiteModel.Store.pm_rsvp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pm_speaker" EntityType="pmsiteModel.Store.pm_speaker" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pm_speakers_event" EntityType="pmsiteModel.Store.pm_speakers_event" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pm_user" EntityType="pmsiteModel.Store.pm_user" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="roles_usuarios" EntityType="pmsiteModel.Store.roles_usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rolesUsuario" EntityType="pmsiteModel.Store.rolesUsuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="pmsiteModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_pm_rsvp_pm_events" Association="pmsiteModel.Store.FK_pm_rsvp_pm_events">
+      <End Role="pm_events" EntitySet="pm_events" />
+      <End Role="pm_rsvp" EntitySet="pm_rsvp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pm_rsvp_pm_user" Association="pmsiteModel.Store.FK_pm_rsvp_pm_user">
+      <End Role="pm_user" EntitySet="pm_user" />
+      <End Role="pm_rsvp" EntitySet="pm_rsvp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pm_speakers_event_pm_events" Association="pmsiteModel.Store.FK_pm_speakers_event_pm_events">
+      <End Role="pm_events" EntitySet="pm_events" />
+      <End Role="pm_speakers_event" EntitySet="pm_speakers_event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pm_speakers_event_pm_speaker" Association="pmsiteModel.Store.FK_pm_speakers_event_pm_speaker">
+      <End Role="pm_speaker" EntitySet="pm_speaker" />
+      <End Role="pm_speakers_event" EntitySet="pm_speakers_event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_roles_usuarios_rolesUsuario" Association="pmsiteModel.Store.FK_roles_usuarios_rolesUsuario">
+      <End Role="rolesUsuario" EntitySet="rolesUsuario" />
+      <End Role="roles_usuarios" EntitySet="roles_usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_roles_usuarios_users" Association="pmsiteModel.Store.FK_roles_usuarios_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="roles_usuarios" EntitySet="roles_usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="logEventos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="evento" Type="text" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="trackEvent" Type="text" />
+    <Property Name="userName" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="pm_events">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="eventDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="eventDescription" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="createdDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="updateDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="pm_rsvp">
+    <Key>
+      <PropertyRef Name="event_id" />
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="event_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="createDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="modifiedDate" Type="smalldatetime" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pm_speaker">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="lastName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="gender" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="pm_speakers_event">
+    <Key>
+      <PropertyRef Name="speaker_id" />
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="speaker_id" Type="int" Nullable="false" />
+    <Property Name="event_id" Type="int" Nullable="false" />
+    <Property Name="createdDate" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pm_user">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="registrationId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="userType" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="gender" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="firstName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="otherName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="lastName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="dateOfBirth" Type="smalldatetime" Nullable="false" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="lastVisit" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles_usuarios">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="roleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rolesUsuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_pm_rsvp_pm_events">
+    <End Role="pm_events" Type="pmsiteModel.Store.pm_events" Multiplicity="1" />
+    <End Role="pm_rsvp" Type="pmsiteModel.Store.pm_rsvp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pm_events">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="pm_rsvp">
+        <PropertyRef Name="event_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pm_rsvp_pm_user">
+    <End Role="pm_user" Type="pmsiteModel.Store.pm_user" Multiplicity="1" />
+    <End Role="pm_rsvp" Type="pmsiteModel.Store.pm_rsvp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pm_user">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="pm_rsvp">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pm_speakers_event_pm_events">
+    <End Role="pm_events" Type="pmsiteModel.Store.pm_events" Multiplicity="1" />
+    <End Role="pm_speakers_event" Type="pmsiteModel.Store.pm_speakers_event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pm_events">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="pm_speakers_event">
+        <PropertyRef Name="event_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pm_speakers_event_pm_speaker">
+    <End Role="pm_speaker" Type="pmsiteModel.Store.pm_speaker" Multiplicity="1" />
+    <End Role="pm_speakers_event" Type="pmsiteModel.Store.pm_speakers_event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pm_speaker">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="pm_speakers_event">
+        <PropertyRef Name="speaker_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_roles_usuarios_rolesUsuario">
+    <End Role="rolesUsuario" Type="pmsiteModel.Store.rolesUsuario" Multiplicity="1" />
+    <End Role="roles_usuarios" Type="pmsiteModel.Store.roles_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rolesUsuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="roles_usuarios">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_roles_usuarios_users">
+    <End Role="users" Type="pmsiteModel.Store.users" Multiplicity="1" />
+    <End Role="roles_usuarios" Type="pmsiteModel.Store.roles_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="roles_usuarios">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,55 @@
+﻿@using LogicLayer.DbLayer
+@model LogicLayer.DbLayer.pm_user
+@{
+    Func<List<pm_user>> getUserEvent = delegate()
+    {
+        List<pm_user> listaUsuarios = null;
+        
+        using(AcessDb acceso = AcessDb.GetInstance())
+        {
+            listaUsuarios = acceso.GetPmUsersByEvent(Model.uid);
+        }
+        if(listaUsuarios == null)
+        {
+            listaUsuarios = new List<pm_user>();
+        }
+        return listaUsuarios;
+    };
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Estatus
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in getUserEvent())
+    {
+        <tr>
+            <td>
+                @item.uid
+            </td>
+            <td>
+                @item.registrationId
+            </td>
+            <td>
+                @item.firstName @item.lastName @item.otherName
+            </td>
+
+        </tr>
+    }
+
+
+</table>

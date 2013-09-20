@@ -1,0 +1,45 @@
+﻿@model LogicLayer.DbLayer.pm_events
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>pm_events</legend>
+
+    <div class="display-label">uid</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.uid)
+    </div>
+
+    <div class="display-label">name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">eventDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.eventDate)
+    </div>
+
+    <div class="display-label">eventDescription</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.eventDescription)
+    </div>
+
+    <div class="display-label">createdDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdDate)
+    </div>
+
+    <div class="display-label">updateDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.updateDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

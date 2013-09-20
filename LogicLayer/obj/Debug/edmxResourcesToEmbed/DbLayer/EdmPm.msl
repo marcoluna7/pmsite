@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pmsiteModelStoreContainer" CdmEntityContainer="pmsiteEntities">
+    <EntitySetMapping Name="logEventos">
+      <EntityTypeMapping TypeName="pmsiteModel.logEventos">
+        <MappingFragment StoreEntitySet="logEventos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="evento" ColumnName="evento" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="trackEvent" ColumnName="trackEvent" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pm_events">
+      <EntityTypeMapping TypeName="pmsiteModel.pm_events">
+        <MappingFragment StoreEntitySet="pm_events">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pm_rsvp">
+      <EntityTypeMapping TypeName="pmsiteModel.pm_rsvp">
+        <MappingFragment StoreEntitySet="pm_rsvp">
+          <ScalarProperty Name="event_id" ColumnName="event_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pm_speaker">
+      <EntityTypeMapping TypeName="pmsiteModel.pm_speaker">
+        <MappingFragment StoreEntitySet="pm_speaker">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pm_speakers_event">
+      <EntityTypeMapping TypeName="pmsiteModel.pm_speakers_event">
+        <MappingFragment StoreEntitySet="pm_speakers_event">
+          <ScalarProperty Name="speaker_id" ColumnName="speaker_id" />
+          <ScalarProperty Name="event_id" ColumnName="event_id" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pm_user">
+      <EntityTypeMapping TypeName="pmsiteModel.pm_user">
+        <MappingFragment StoreEntitySet="pm_user">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="registrationId" ColumnName="registrationId" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="otherName" ColumnName="otherName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lastVisit" ColumnName="lastVisit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rolesUsuario">
+      <EntityTypeMapping TypeName="pmsiteModel.rolesUsuario">
+        <MappingFragment StoreEntitySet="rolesUsuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="pmsiteModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="roles_usuarios" TypeName="pmsiteModel.roles_usuarios" StoreEntitySet="roles_usuarios">
+      <EndProperty Name="rolesUsuario">
+        <ScalarProperty Name="id" ColumnName="roleId" />
+      </EndProperty>
+      <EndProperty Name="users">
+        <ScalarProperty Name="id" ColumnName="userId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
